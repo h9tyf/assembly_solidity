@@ -28,30 +28,6 @@ contract Storage {
         number = num;
     }
 
-    /**
-     * @dev Return value 
-     * @return value of 'number'
-     */
-    function retrieve() public view returns (uint256){
-        return number;
-    }
-
-    function retrieve_pool() public view returns (address){
-        return poolAddr;
-    }
-
-    function retrieve_from() public view returns (address){
-        return fromToken;
-    }
-
-    function retrieve_to() public view returns (address){
-        return toToken;
-    }
-
-    function retrieve_amount() public view returns (uint24){
-        return amountIn;
-    }
-
     function store_solidity(address pool, address from, address to, uint24 amount) external {
         poolAddr = pool;
         fromToken = from;
@@ -60,7 +36,7 @@ contract Storage {
     }
 
     function store_bytes(bytes calldata data) external {
-        console.logBytes(data);
+        //console.logBytes(data);
         (address pool, address from, address to, uint24 amount) 
             = abi.decode(data, (address, address, address, uint24));
         poolAddr = pool;
@@ -70,7 +46,7 @@ contract Storage {
     }
 
     function store_bytes_zip(bytes calldata data) external {
-        console.logBytes(data);
+        //console.logBytes(data);
         bytes memory packed = data;
         address pool;
         address from;

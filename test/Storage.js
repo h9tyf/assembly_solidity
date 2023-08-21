@@ -5,14 +5,14 @@ const {
 const { anyValue } = require("@nomicfoundation/hardhat-chai-matchers/withArgs");
 const { expect } = require("chai");
 const hre = require("hardhat");
-const{ethers} = require("@nomicfoundation/hardhat-ethers");
+const { ethers } = require("@nomicfoundation/hardhat-ethers");
 
 const abiCoder = new hre.ethers.AbiCoder();
 
 describe("Storage", function () {
     async function deployStorage() {
         const number = 100;
-        const [owner, otherAccount] = await hre.ethers.getSigners();
+        const [user1, user2] = await hre.ethers.getSigners();
 
         const Storage = await hre.ethers.getContractFactory("Storage");
         const storage = await Storage.deploy(number);
@@ -22,7 +22,7 @@ describe("Storage", function () {
 
         const pool = "0xA478c2975Ab1Ea89e8196811F51A7B7Ade33eB11";
         const amount = 200;
-        return { storage, number, pool, from, to, amount };
+        return { storage, number, pool, from, to, amount, user1 };
     }
 
     describe("Deployment", function () {
@@ -69,7 +69,7 @@ describe("Storage", function () {
             console.log(await storage.amountIn()); */
         });
         it("Storage parameters by ziped bytes data", async function () {
-            const { storage, pool, from, to, amount } = await loadFixture(deployStorage);    
+            const { storage, pool, from, to, amount } = await loadFixture(deployStorage);
             const dataPacked = hre.ethers.solidityPacked(["address", "address", "address", "uint24"], [pool, from, to, amount]);
             console.log(dataPacked);
             await storage.store_bytes_zip(dataPacked);
@@ -77,9 +77,42 @@ describe("Storage", function () {
             console.log(await storage.poolAddr());
             console.log(await storage.fromToken());
             console.log(await storage.toToken());
-            console.log(await storage.amountIn()); 
+            console.log(await storage.amountIn());
         })
 
 
+    });
+
+    describe("Estimate Gas", function () {
+        it("Storage parameters by solidity", async function () {
+            const { storage, pool, from, to, amount, user1 } = await loadFixture(deployStorage);
+            //await storage.store_solidity(pool, from, to, amount);
+            const dataFunc = storage.interface.encodeFunctionData('store_solidity', [pool, from, to, amount]);
+            const estimateGas = await user1.estimateGas({
+                to: storage.getAddress(), data: dataFunc
+            })
+            console.log("estimateGas = ", estimateGas);
+        });
+        it("Storage parameters by bytes data", async function () {
+            const { storage, pool, from, to, amount, user1  } = await loadFixture(deployStorage);
+            const data = abiCoder.encode(["address", "address", "address", "uint24"], [pool, from, to, amount]);
+            //await storage.store_bytes(data);
+            const dataFunc = storage.interface.encodeFunctionData('store_bytes', [data]);
+            const estimateGas = await user1.estimateGas({
+                to: storage.getAddress(), data: dataFunc
+            })
+            console.log("estimateGas = ", estimateGas);
+        });
+        it("Storage parameters by ziped bytes data", async function () {
+            const { storage, pool, from, to, amount, user1  } = await loadFixture(deployStorage);
+            const dataPacked = hre.ethers.solidityPacked(["address", "address", "address", "uint24"], [pool, from, to, amount]);
+            console.log(dataPacked);
+            //await storage.store_bytes_zip(dataPacked);
+            const dataFunc = storage.interface.encodeFunctionData('store_bytes_zip', [dataPacked]);
+            const estimateGas = await user1.estimateGas({
+                to: storage.getAddress(), data: dataFunc
+            })
+            console.log("estimateGas = ", estimateGas);
+        })
     });
 });

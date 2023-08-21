@@ -1,0 +1,612 @@
+.code
+  PUSH 80			contract Storage {\r\n    addr...
+  PUSH 40			contract Storage {\r\n    addr...
+  MSTORE 			contract Storage {\r\n    addr...
+  CALLVALUE 			constructor() {\r\n    }
+  DUP1 			constructor() {\r\n    }
+  ISZERO 			constructor() {\r\n    }
+  PUSH [tag] 1			constructor() {\r\n    }
+  JUMPI 			constructor() {\r\n    }
+  PUSH 0			constructor() {\r\n    }
+  DUP1 			constructor() {\r\n    }
+  REVERT 			constructor() {\r\n    }
+tag 1			constructor() {\r\n    }
+  JUMPDEST 			constructor() {\r\n    }
+  POP 			constructor() {\r\n    }
+  PUSH #[$] 0000000000000000000000000000000000000000000000000000000000000000			contract Storage {\r\n    addr...
+  DUP1 			contract Storage {\r\n    addr...
+  PUSH [$] 0000000000000000000000000000000000000000000000000000000000000000			contract Storage {\r\n    addr...
+  PUSH 0			contract Storage {\r\n    addr...
+  CODECOPY 			contract Storage {\r\n    addr...
+  PUSH 0			contract Storage {\r\n    addr...
+  RETURN 			contract Storage {\r\n    addr...
+.data
+  0:
+    .code
+      PUSH 80			contract Storage {\r\n    addr...
+      PUSH 40			contract Storage {\r\n    addr...
+      MSTORE 			contract Storage {\r\n    addr...
+      CALLVALUE 			contract Storage {\r\n    addr...
+      DUP1 			contract Storage {\r\n    addr...
+      ISZERO 			contract Storage {\r\n    addr...
+      PUSH [tag] 1			contract Storage {\r\n    addr...
+      JUMPI 			contract Storage {\r\n    addr...
+      PUSH 0			contract Storage {\r\n    addr...
+      DUP1 			contract Storage {\r\n    addr...
+      REVERT 			contract Storage {\r\n    addr...
+    tag 1			contract Storage {\r\n    addr...
+      JUMPDEST 			contract Storage {\r\n    addr...
+      POP 			contract Storage {\r\n    addr...
+      PUSH 4			contract Storage {\r\n    addr...
+      CALLDATASIZE 			contract Storage {\r\n    addr...
+      LT 			contract Storage {\r\n    addr...
+      PUSH [tag] 2			contract Storage {\r\n    addr...
+      JUMPI 			contract Storage {\r\n    addr...
+      PUSH 0			contract Storage {\r\n    addr...
+      CALLDATALOAD 			contract Storage {\r\n    addr...
+      PUSH E0			contract Storage {\r\n    addr...
+      SHR 			contract Storage {\r\n    addr...
+      DUP1 			contract Storage {\r\n    addr...
+      PUSH 32A46857			contract Storage {\r\n    addr...
+      EQ 			contract Storage {\r\n    addr...
+      PUSH [tag] 3			contract Storage {\r\n    addr...
+      JUMPI 			contract Storage {\r\n    addr...
+      DUP1 			contract Storage {\r\n    addr...
+      PUSH 3C930575			contract Storage {\r\n    addr...
+      EQ 			contract Storage {\r\n    addr...
+      PUSH [tag] 4			contract Storage {\r\n    addr...
+      JUMPI 			contract Storage {\r\n    addr...
+      DUP1 			contract Storage {\r\n    addr...
+      PUSH 6046CD99			contract Storage {\r\n    addr...
+      EQ 			contract Storage {\r\n    addr...
+      PUSH [tag] 5			contract Storage {\r\n    addr...
+      JUMPI 			contract Storage {\r\n    addr...
+      DUP1 			contract Storage {\r\n    addr...
+      PUSH 6BED55A6			contract Storage {\r\n    addr...
+      EQ 			contract Storage {\r\n    addr...
+      PUSH [tag] 6			contract Storage {\r\n    addr...
+      JUMPI 			contract Storage {\r\n    addr...
+      DUP1 			contract Storage {\r\n    addr...
+      PUSH B867B181			contract Storage {\r\n    addr...
+      EQ 			contract Storage {\r\n    addr...
+      PUSH [tag] 7			contract Storage {\r\n    addr...
+      JUMPI 			contract Storage {\r\n    addr...
+    tag 2			contract Storage {\r\n    addr...
+      JUMPDEST 			contract Storage {\r\n    addr...
+      PUSH 0			contract Storage {\r\n    addr...
+      DUP1 			contract Storage {\r\n    addr...
+      REVERT 			contract Storage {\r\n    addr...
+    tag 3			address public fromToken
+      JUMPDEST 			address public fromToken
+      PUSH [tag] 8			address public fromToken
+      PUSH [tag] 9			address public fromToken
+      JUMP 			address public fromToken
+    tag 8			address public fromToken
+      JUMPDEST 			address public fromToken
+      PUSH 40			address public fromToken
+      MLOAD 			address public fromToken
+      PUSH [tag] 10			address public fromToken
+      SWAP2 			address public fromToken
+      SWAP1 			address public fromToken
+      PUSH [tag] 11			address public fromToken
+      JUMP 			address public fromToken
+    tag 10			address public fromToken
+      JUMPDEST 			address public fromToken
+      PUSH 40			address public fromToken
+      MLOAD 			address public fromToken
+      DUP1 			address public fromToken
+      SWAP2 			address public fromToken
+      SUB 			address public fromToken
+      SWAP1 			address public fromToken
+      RETURN 			address public fromToken
+    tag 4			address public toToken
+      JUMPDEST 			address public toToken
+      PUSH [tag] 12			address public toToken
+      PUSH [tag] 13			address public toToken
+      JUMP 			address public toToken
+    tag 12			address public toToken
+      JUMPDEST 			address public toToken
+      PUSH 40			address public toToken
+      MLOAD 			address public toToken
+      PUSH [tag] 14			address public toToken
+      SWAP2 			address public toToken
+      SWAP1 			address public toToken
+      PUSH [tag] 11			address public toToken
+      JUMP 			address public toToken
+    tag 14			address public toToken
+      JUMPDEST 			address public toToken
+      PUSH 40			address public toToken
+      MLOAD 			address public toToken
+      DUP1 			address public toToken
+      SWAP2 			address public toToken
+      SUB 			address public toToken
+      SWAP1 			address public toToken
+      RETURN 			address public toToken
+    tag 5			address public poolAddr
+      JUMPDEST 			address public poolAddr
+      PUSH [tag] 15			address public poolAddr
+      PUSH [tag] 16			address public poolAddr
+      JUMP 			address public poolAddr
+    tag 15			address public poolAddr
+      JUMPDEST 			address public poolAddr
+      PUSH 40			address public poolAddr
+      MLOAD 			address public poolAddr
+      PUSH [tag] 17			address public poolAddr
+      SWAP2 			address public poolAddr
+      SWAP1 			address public poolAddr
+      PUSH [tag] 11			address public poolAddr
+      JUMP 			address public poolAddr
+    tag 17			address public poolAddr
+      JUMPDEST 			address public poolAddr
+      PUSH 40			address public poolAddr
+      MLOAD 			address public poolAddr
+      DUP1 			address public poolAddr
+      SWAP2 			address public poolAddr
+      SUB 			address public poolAddr
+      SWAP1 			address public poolAddr
+      RETURN 			address public poolAddr
+    tag 6			uint24 public amountIn
+      JUMPDEST 			uint24 public amountIn
+      PUSH [tag] 18			uint24 public amountIn
+      PUSH [tag] 19			uint24 public amountIn
+      JUMP 			uint24 public amountIn
+    tag 18			uint24 public amountIn
+      JUMPDEST 			uint24 public amountIn
+      PUSH 40			uint24 public amountIn
+      MLOAD 			uint24 public amountIn
+      PUSH [tag] 20			uint24 public amountIn
+      SWAP2 			uint24 public amountIn
+      SWAP1 			uint24 public amountIn
+      PUSH [tag] 21			uint24 public amountIn
+      JUMP 			uint24 public amountIn
+    tag 20			uint24 public amountIn
+      JUMPDEST 			uint24 public amountIn
+      PUSH 40			uint24 public amountIn
+      MLOAD 			uint24 public amountIn
+      DUP1 			uint24 public amountIn
+      SWAP2 			uint24 public amountIn
+      SUB 			uint24 public amountIn
+      SWAP1 			uint24 public amountIn
+      RETURN 			uint24 public amountIn
+    tag 7			function store_solidity(addres...
+      JUMPDEST 			function store_solidity(addres...
+      PUSH [tag] 22			function store_solidity(addres...
+      PUSH 4			function store_solidity(addres...
+      DUP1 			function store_solidity(addres...
+      CALLDATASIZE 			function store_solidity(addres...
+      SUB 			function store_solidity(addres...
+      DUP2 			function store_solidity(addres...
+      ADD 			function store_solidity(addres...
+      SWAP1 			function store_solidity(addres...
+      PUSH [tag] 23			function store_solidity(addres...
+      SWAP2 			function store_solidity(addres...
+      SWAP1 			function store_solidity(addres...
+      PUSH [tag] 24			function store_solidity(addres...
+      JUMP 			function store_solidity(addres...
+    tag 23			function store_solidity(addres...
+      JUMPDEST 			function store_solidity(addres...
+      PUSH [tag] 25			function store_solidity(addres...
+      JUMP 			function store_solidity(addres...
+    tag 22			function store_solidity(addres...
+      JUMPDEST 			function store_solidity(addres...
+      STOP 			function store_solidity(addres...
+    tag 9			address public fromToken
+      JUMPDEST 			address public fromToken
+      PUSH 1			address public fromToken
+      PUSH 0			address public fromToken
+      SWAP1 			address public fromToken
+      SLOAD 			address public fromToken
+      SWAP1 			address public fromToken
+      PUSH 100			address public fromToken
+      EXP 			address public fromToken
+      SWAP1 			address public fromToken
+      DIV 			address public fromToken
+      PUSH FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF			address public fromToken
+      AND 			address public fromToken
+      DUP2 			address public fromToken
+      JUMP 			address public fromToken
+    tag 13			address public toToken
+      JUMPDEST 			address public toToken
+      PUSH 2			address public toToken
+      PUSH 0			address public toToken
+      SWAP1 			address public toToken
+      SLOAD 			address public toToken
+      SWAP1 			address public toToken
+      PUSH 100			address public toToken
+      EXP 			address public toToken
+      SWAP1 			address public toToken
+      DIV 			address public toToken
+      PUSH FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF			address public toToken
+      AND 			address public toToken
+      DUP2 			address public toToken
+      JUMP 			address public toToken
+    tag 16			address public poolAddr
+      JUMPDEST 			address public poolAddr
+      PUSH 0			address public poolAddr
+      DUP1 			address public poolAddr
+      SLOAD 			address public poolAddr
+      SWAP1 			address public poolAddr
+      PUSH 100			address public poolAddr
+      EXP 			address public poolAddr
+      SWAP1 			address public poolAddr
+      DIV 			address public poolAddr
+      PUSH FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF			address public poolAddr
+      AND 			address public poolAddr
+      DUP2 			address public poolAddr
+      JUMP 			address public poolAddr
+    tag 19			uint24 public amountIn
+      JUMPDEST 			uint24 public amountIn
+      PUSH 2			uint24 public amountIn
+      PUSH 14			uint24 public amountIn
+      SWAP1 			uint24 public amountIn
+      SLOAD 			uint24 public amountIn
+      SWAP1 			uint24 public amountIn
+      PUSH 100			uint24 public amountIn
+      EXP 			uint24 public amountIn
+      SWAP1 			uint24 public amountIn
+      DIV 			uint24 public amountIn
+      PUSH FFFFFF			uint24 public amountIn
+      AND 			uint24 public amountIn
+      DUP2 			uint24 public amountIn
+      JUMP 			uint24 public amountIn
+    tag 25			function store_solidity(addres...
+      JUMPDEST 			function store_solidity(addres...
+      DUP4 			pool
+      PUSH 0			poolAddr
+      DUP1 			poolAddr
+      PUSH 100			poolAddr = pool
+      EXP 			poolAddr = pool
+      DUP2 			poolAddr = pool
+      SLOAD 			poolAddr = pool
+      DUP2 			poolAddr = pool
+      PUSH FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF			poolAddr = pool
+      MUL 			poolAddr = pool
+      NOT 			poolAddr = pool
+      AND 			poolAddr = pool
+      SWAP1 			poolAddr = pool
+      DUP4 			poolAddr = pool
+      PUSH FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF			poolAddr = pool
+      AND 			poolAddr = pool
+      MUL 			poolAddr = pool
+      OR 			poolAddr = pool
+      SWAP1 			poolAddr = pool
+      SSTORE 			poolAddr = pool
+      POP 			poolAddr = pool
+      DUP3 			from
+      PUSH 1			fromToken
+      PUSH 0			fromToken
+      PUSH 100			fromToken = from
+      EXP 			fromToken = from
+      DUP2 			fromToken = from
+      SLOAD 			fromToken = from
+      DUP2 			fromToken = from
+      PUSH FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF			fromToken = from
+      MUL 			fromToken = from
+      NOT 			fromToken = from
+      AND 			fromToken = from
+      SWAP1 			fromToken = from
+      DUP4 			fromToken = from
+      PUSH FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF			fromToken = from
+      AND 			fromToken = from
+      MUL 			fromToken = from
+      OR 			fromToken = from
+      SWAP1 			fromToken = from
+      SSTORE 			fromToken = from
+      POP 			fromToken = from
+      DUP2 			to
+      PUSH 2			toToken
+      PUSH 0			toToken
+      PUSH 100			toToken = to
+      EXP 			toToken = to
+      DUP2 			toToken = to
+      SLOAD 			toToken = to
+      DUP2 			toToken = to
+      PUSH FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF			toToken = to
+      MUL 			toToken = to
+      NOT 			toToken = to
+      AND 			toToken = to
+      SWAP1 			toToken = to
+      DUP4 			toToken = to
+      PUSH FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF			toToken = to
+      AND 			toToken = to
+      MUL 			toToken = to
+      OR 			toToken = to
+      SWAP1 			toToken = to
+      SSTORE 			toToken = to
+      POP 			toToken = to
+      DUP1 			amount
+      PUSH 2			amountIn
+      PUSH 14			amountIn
+      PUSH 100			amountIn = amount
+      EXP 			amountIn = amount
+      DUP2 			amountIn = amount
+      SLOAD 			amountIn = amount
+      DUP2 			amountIn = amount
+      PUSH FFFFFF			amountIn = amount
+      MUL 			amountIn = amount
+      NOT 			amountIn = amount
+      AND 			amountIn = amount
+      SWAP1 			amountIn = amount
+      DUP4 			amountIn = amount
+      PUSH FFFFFF			amountIn = amount
+      AND 			amountIn = amount
+      MUL 			amountIn = amount
+      OR 			amountIn = amount
+      SWAP1 			amountIn = amount
+      SSTORE 			amountIn = amount
+      POP 			amountIn = amount
+      POP 			function store_solidity(addres...
+      POP 			function store_solidity(addres...
+      POP 			function store_solidity(addres...
+      POP 			function store_solidity(addres...
+      JUMP 			function store_solidity(addres...
+    tag 27			-License-Identifier: GPL-3.0\r...
+      JUMPDEST 			-License-Identifier: GPL-3.0\r...
+      PUSH 0			a solid
+      PUSH FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF			e {\r\n    address public pool...
+      DUP3 			 Stor
+      AND 			ract Storage {\r\n    address ...
+      SWAP1 			;\r\n\r\n\r\ncontract Storage ...
+      POP 			;\r\n\r\n\r\ncontract Storage ...
+      SWAP2 			-License-Identifier: GPL-3.0\r...
+      SWAP1 			-License-Identifier: GPL-3.0\r...
+      POP 			-License-Identifier: GPL-3.0\r...
+      JUMP 			-License-Identifier: GPL-3.0\r...
+    tag 28			romToken;\r\n    address publi...
+      JUMPDEST 			romToken;\r\n    address publi...
+      PUSH 0			;\r\n    
+      PUSH [tag] 42			;\r\n\r\n    uint256 constan
+      DUP3 			onsta
+      PUSH [tag] 27			;\r\n\r\n    uint256 constan
+      JUMP 			;\r\n\r\n    uint256 constan
+    tag 42			;\r\n\r\n    uint256 constan
+      JUMPDEST 			;\r\n\r\n    uint256 constan
+      SWAP1 			ic amountIn;\r\n\r\n    uint25...
+      POP 			ic amountIn;\r\n\r\n    uint25...
+      SWAP2 			romToken;\r\n    address publi...
+      SWAP1 			romToken;\r\n    address publi...
+      POP 			romToken;\r\n    address publi...
+      JUMP 			romToken;\r\n    address publi...
+    tag 29			NGTH = 0x14;\r\n    uint256 co...
+      JUMPDEST 			NGTH = 0x14;\r\n    uint256 co...
+      PUSH [tag] 44			\n\r\n    \r\n\r\n    function...
+      DUP2 			ction
+      PUSH [tag] 28			\n\r\n    \r\n\r\n    function...
+      JUMP 			\n\r\n    \r\n\r\n    function...
+    tag 44			\n\r\n    \r\n\r\n    function...
+      JUMPDEST 			\n\r\n    \r\n\r\n    function...
+      DUP3 			   
+      MSTORE 			() {\r\n    }\r\n\r\n    \r\n\...
+      POP 			NGTH = 0x14;\r\n    uint256 co...
+      POP 			NGTH = 0x14;\r\n    uint256 co...
+      JUMP 			NGTH = 0x14;\r\n    uint256 co...
+    tag 11			y(address pool, address from, ...
+      JUMPDEST 			y(address pool, address from, ...
+      PUSH 0			\r\n  
+      PUSH 20			oT
+      DUP3 			\r\n       
+      ADD 			rom;\r\n        toTo
+      SWAP1 			oken = from;\r\n        toTo
+      POP 			oken = from;\r\n        toTo
+      PUSH [tag] 46			\n        amountIn = amount;\r...
+      PUSH 0			
+      DUP4 			
+      ADD 			
+      DUP5 			}
+      PUSH [tag] 29			\n        amountIn = amount;\r...
+      JUMP 			\n        amountIn = amount;\r...
+    tag 46			\n        amountIn = amount;\r...
+      JUMPDEST 			\n        amountIn = amount;\r...
+      SWAP3 			y(address pool, address from, ...
+      SWAP2 			y(address pool, address from, ...
+      POP 			y(address pool, address from, ...
+      POP 			y(address pool, address from, ...
+      JUMP 			y(address pool, address from, ...
+    tag 30			
+      JUMPDEST 			
+      PUSH 0			
+      PUSH FFFFFF			
+      DUP3 			
+      AND 			
+      SWAP1 			
+      POP 			
+      SWAP2 			
+      SWAP1 			
+      POP 			
+      JUMP 			
+    tag 31			
+      JUMPDEST 			
+      PUSH [tag] 49			
+      DUP2 			
+      PUSH [tag] 30			
+      JUMP 			
+    tag 49			
+      JUMPDEST 			
+      DUP3 			
+      MSTORE 			
+      POP 			
+      POP 			
+      JUMP 			
+    tag 21			
+      JUMPDEST 			
+      PUSH 0			
+      PUSH 20			
+      DUP3 			
+      ADD 			
+      SWAP1 			
+      POP 			
+      PUSH [tag] 51			
+      PUSH 0			
+      DUP4 			
+      ADD 			
+      DUP5 			
+      PUSH [tag] 31			
+      JUMP 			
+    tag 51			
+      JUMPDEST 			
+      SWAP3 			
+      SWAP2 			
+      POP 			
+      POP 			
+      JUMP 			
+    tag 33			
+      JUMPDEST 			
+      PUSH 0			
+      DUP1 			
+      REVERT 			
+    tag 35			
+      JUMPDEST 			
+      PUSH [tag] 56			
+      DUP2 			
+      PUSH [tag] 28			
+      JUMP 			
+    tag 56			
+      JUMPDEST 			
+      DUP2 			
+      EQ 			
+      PUSH [tag] 57			
+      JUMPI 			
+      PUSH 0			
+      DUP1 			
+      REVERT 			
+    tag 57			
+      JUMPDEST 			
+      POP 			
+      JUMP 			
+    tag 36			
+      JUMPDEST 			
+      PUSH 0			
+      DUP2 			
+      CALLDATALOAD 			
+      SWAP1 			
+      POP 			
+      PUSH [tag] 59			
+      DUP2 			
+      PUSH [tag] 35			
+      JUMP 			
+    tag 59			
+      JUMPDEST 			
+      SWAP3 			
+      SWAP2 			
+      POP 			
+      POP 			
+      JUMP 			
+    tag 37			
+      JUMPDEST 			
+      PUSH [tag] 61			
+      DUP2 			
+      PUSH [tag] 30			
+      JUMP 			
+    tag 61			
+      JUMPDEST 			
+      DUP2 			
+      EQ 			
+      PUSH [tag] 62			
+      JUMPI 			
+      PUSH 0			
+      DUP1 			
+      REVERT 			
+    tag 62			
+      JUMPDEST 			
+      POP 			
+      JUMP 			
+    tag 38			
+      JUMPDEST 			
+      PUSH 0			
+      DUP2 			
+      CALLDATALOAD 			
+      SWAP1 			
+      POP 			
+      PUSH [tag] 64			
+      DUP2 			
+      PUSH [tag] 37			
+      JUMP 			
+    tag 64			
+      JUMPDEST 			
+      SWAP3 			
+      SWAP2 			
+      POP 			
+      POP 			
+      JUMP 			
+    tag 24			
+      JUMPDEST 			
+      PUSH 0			
+      DUP1 			
+      PUSH 0			
+      DUP1 			
+      PUSH 80			
+      DUP6 			
+      DUP8 			
+      SUB 			
+      SLT 			
+      ISZERO 			
+      PUSH [tag] 66			
+      JUMPI 			
+      PUSH [tag] 67			
+      PUSH [tag] 33			
+      JUMP 			
+    tag 67			
+      JUMPDEST 			
+    tag 66			
+      JUMPDEST 			
+      PUSH 0			
+      PUSH [tag] 68			
+      DUP8 			
+      DUP3 			
+      DUP9 			
+      ADD 			
+      PUSH [tag] 36			
+      JUMP 			
+    tag 68			
+      JUMPDEST 			
+      SWAP5 			
+      POP 			
+      POP 			
+      PUSH 20			
+      PUSH [tag] 69			
+      DUP8 			
+      DUP3 			
+      DUP9 			
+      ADD 			
+      PUSH [tag] 36			
+      JUMP 			
+    tag 69			
+      JUMPDEST 			
+      SWAP4 			
+      POP 			
+      POP 			
+      PUSH 40			
+      PUSH [tag] 70			
+      DUP8 			
+      DUP3 			
+      DUP9 			
+      ADD 			
+      PUSH [tag] 36			
+      JUMP 			
+    tag 70			
+      JUMPDEST 			
+      SWAP3 			
+      POP 			
+      POP 			
+      PUSH 60			
+      PUSH [tag] 71			
+      DUP8 			
+      DUP3 			
+      DUP9 			
+      ADD 			
+      PUSH [tag] 38			
+      JUMP 			
+    tag 71			
+      JUMPDEST 			
+      SWAP2 			
+      POP 			
+      POP 			
+      SWAP3 			
+      SWAP6 			
+      SWAP2 			
+      SWAP5 			
+      POP 			
+      SWAP3 			
+      POP 			
+      JUMP 			
+    .data

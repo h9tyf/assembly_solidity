@@ -130,6 +130,17 @@ describe("Storage", function () {
                 to: storage.getAddress(), data: dataFunc
             })
             console.log("estimateGas = ", estimateGas);
+        });
+        it("Storage parameters by ziped ziped bytes data", async function () {
+            const { storage, pool, from, to, amount, user1 } = await loadFixture(deployStorage);
+            const functionSelector = storage.interface.encodeFunctionData('store_bytes_zip_zip', []);
+            const dataPacked = hre.ethers.solidityPacked(["address", "address", "address", "uint24"], [pool, from, to, amount]);
+            const dataAll = functionSelector + dataPacked.substring(2) + '0'.repeat(58);
+            //console.log(dataAll);
+            const estimateGas = await user1.estimateGas({
+                to: storage.getAddress(), data: dataAll
+            })
+            console.log("estimateGas = ", estimateGas);
         })
     });
 });

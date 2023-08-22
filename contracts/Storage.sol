@@ -15,6 +15,7 @@ contract Storage {
 
     uint256 constant ADDRESS_LENGTH = 0x14;
     uint256 constant UINT24_LENGTH = 0x03;
+    uint256 constant UINT256_LENGTH = 0x20;
 
     constructor(uint256 num) {
         number = num;
@@ -65,7 +66,7 @@ contract Storage {
     }
 
     function store_bytes_zip_zip() external {
-        bytes memory input;
+        uint input;
         address pool;
         address from;
         address to;
@@ -75,23 +76,36 @@ contract Storage {
             let input_len := sub(calldata_len, 4)
 
             input := mload(0x40)
-            mstore(input, input_len)
+            calldatacopy(input, 4, input_len)
+            let input_data := sub(input, 0x20)
 
-            let input_data := add(input, 0x20)
-            calldatacopy(input_data, 4, input_len)
-
-            let free := add(input_data, input_len)
+            let free := add(input, input_len)
             let free_round := and(add(free, 31), not(31))
             mstore(0x40, free_round)
 
-            pool := mload(add(input, ADDRESS_LENGTH))
-            from := mload(add(input, mul(ADDRESS_LENGTH, 2)))
-            to := mload(add(input, mul(ADDRESS_LENGTH, 3)))
-            amount := mload(add(input, add(mul(ADDRESS_LENGTH, 3), UINT24_LENGTH)))
+            pool := mload(add(input_data, ADDRESS_LENGTH))
+            from := mload(add(input_data, mul(ADDRESS_LENGTH, 2)))
+            to := mload(add(input_data, mul(ADDRESS_LENGTH, 3)))
+            amount := mload(add(input_data, add(mul(ADDRESS_LENGTH, 3), UINT24_LENGTH)))
         }
         poolAddr = pool;
         fromToken = from;
         toToken = to;
         amountIn = amount; 
+    }
+
+
+    function test() external pure  {
+        address _x = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2; 
+        address _y = 0x6B175474E89094C44Da98b954EedeAC495271d0F;
+        bytes memory packed = abi.encodePacked(_x, _y);
+        console.logBytes(packed);
+        address x;
+        address y;
+        assembly {
+            x := mload(add(packed, ADDRESS_LENGTH))
+            y := mload(add(packed, mul(ADDRESS_LENGTH, 2)))
+        }
+
     }
 }

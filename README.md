@@ -122,4 +122,4 @@ store_bytes: 93313
 
 store_bytes_zip: 92477
 
-store_bytes_zip_zip: 91905
+store_bytes_zip_zip: 91905 => 91893(delete input_len)

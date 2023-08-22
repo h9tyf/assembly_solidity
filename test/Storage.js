@@ -83,7 +83,7 @@ describe("Storage", function () {
             const { storage, pool, from, to, amount, user1 } = await loadFixture(deployStorage);
             const functionSelector = storage.interface.encodeFunctionData('store_bytes_zip_zip', []);
             const dataPacked = hre.ethers.solidityPacked(["address", "address", "address", "uint24"], [pool, from, to, amount]);
-            const dataAll = functionSelector + dataPacked.substring(2) + '0'.repeat(58);
+            const dataAll = functionSelector + dataPacked.substring(2);
             //console.log(dataAll);
             await user1.sendTransaction({
                 to: storage.getAddress(),
@@ -95,9 +95,8 @@ describe("Storage", function () {
             console.log(await storage.fromToken());
             console.log(await storage.toToken());
             console.log(await storage.amountIn());
-        })
-
-
+            await storage.test();
+        });
     });
 
     describe("Estimate Gas", function () {

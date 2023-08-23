@@ -115,11 +115,22 @@ c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2
 ```
 
 ##### estimate Gas of three functions
+simple:
 
-store_solidity: 92760
+- store_solidity: 92760
 
-store_bytes: 93313
+- store_bytes: 93313
 
-store_bytes_zip: 92477
+- store_bytes_zip: 92477
 
-store_bytes_zip_zip: 91905 => 91893(delete input_len)
+- store_bytes_zip_zip: 91905 => 91893(delete input_len)
+
+add bytes as parameter:
+
+- store_solidity: 94748
+
+- store_bytes: 95579
+
+- store_bytes_zip: 93478
+
+- store_bytes_zip_zip: 92961

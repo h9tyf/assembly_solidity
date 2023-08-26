@@ -8,24 +8,88 @@ contract Executor {
     struct Exchange {
         uint8 platform;
         address pool;
-        uint256 len;
         bytes data;
     }
-    uint number;
 
-    function execute_init(uint inAmount, address recipient, uint256 len, Exchange[] calldata exchanges, address[] calldata tokens) external {
+    uint256 constant ADDRESS_LENGTH = 0x14;
+    uint256 constant UINT24_LENGTH = 0x03;
+    uint256 constant UINT256_LENGTH = 0x20;
+    uint256 constant UINT8_LENGTH = 0x01;
+
+    function execute_init(
+        uint inAmount,
+        address recipient,
+        address[] calldata tokens,
+        Exchange[] calldata exchanges
+    ) external pure {
         bytes memory params = abi.encode(recipient, exchanges, tokens);
-        number = inAmount;
-        console.log(len);
+        console.log("right params");
         console.logBytes(params);
     }
 
     function execute_assembly() external {
         /* uint inAmount
-        address payable_recipient
+        address recipient
         uint len
         address[] token (size = length+1)
         Exchange[] exchanges (size = length)
         */
+        uint input;
+        uint inAmount;
+        address recipient;
+        uint len;
+        address[] memory tokens;
+        uint256[] memory exchangesSize;
+        bytes memory exchanges;
+
+        assembly {
+            let calldata_len := calldatasize()
+            let input_len := sub(calldata_len, 4)
+            let fixed_len := add(mul(UINT256_LENGTH, 2), ADDRESS_LENGTH)
+            
+            input := mload(0x40)
+            mstore(input, input_len)
+
+            let input_data_fixed := add(input, 0x20)
+            calldatacopy(input_data_fixed, 4, fixed_len)
+
+            inAmount := mload(add(input, UINT256_LENGTH))
+            recipient := mload(add(input, add(UINT256_LENGTH, ADDRESS_LENGTH)))
+            len := mload(add(input, add(mul(UINT256_LENGTH, 2), ADDRESS_LENGTH)))
+
+            //tokens_len := mul(ADDRESS_LENGTH, add(len, 1))
+            let tokens_len := mul(UINT256_LENGTH, add(len, 1)) // = exchangesSize.len
+            let exchangesSize_len := mul(UINT256_LENGTH, len)
+            let exchanges_len := sub(input_len, add(add(fixed_len, tokens_len), exchangesSize_len))
+
+            tokens := add(input_data_fixed, fixed_len)
+            mstore(tokens, add(len, 1)) //size of length?
+            let tokens_data := add(tokens, 0x20)
+            calldatacopy(tokens_data, add(4, fixed_len), tokens_len)
+
+            exchangesSize := add(tokens_data, tokens_len)
+            mstore(exchangesSize, len)
+            let exchangesSize_data := add(exchangesSize, 0x20)
+            calldatacopy(exchangesSize_data, add(4, add(fixed_len, tokens_len)), exchangesSize_len)
+
+
+            exchanges := add(exchangesSize_data, exchangesSize_len)
+            mstore(exchanges, exchanges_len)
+            let exchanges_data := add(exchanges, 0x20)
+            calldatacopy(exchanges_data, add(4, add(add(fixed_len, tokens_len), exchangesSize_len)), exchanges_len)
+
+            let free := add(exchanges_data, exchanges_len)
+            let free_round := and(add(free, 31), not(31))
+            mstore(0x40, free_round)
+        }
+        bytes memory params = abi.encodePacked(uint256(uint160(recipient)), uint256(0x60), 192 + exchanges.length, len);
+        uint256 exchangeOffset = (0x20) * len;
+        for(uint i = 0; i < exchangesSize.length; i++){
+            params = abi.encodePacked(params, exchangeOffset);
+            exchangeOffset += exchangesSize[i];
+        }
+        params = abi.encodePacked(params, exchanges, tokens.length, tokens);
+        console.log("my params = ");
+        console.logBytes(params);
     }
 }

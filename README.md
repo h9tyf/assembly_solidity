@@ -134,3 +134,9 @@ add bytes as parameter:
 - store_bytes_zip: 93478
 
 - store_bytes_zip_zip: 92961
+
+### Contract: Executor.sol
+
+add parameters for exchanges.length
+
+Gas: 38204 => 38864

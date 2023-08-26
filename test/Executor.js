@@ -69,5 +69,24 @@ describe("Executor", function () {
         })
         console.log("estimateGas = ", estimateGas);
     });
+    it("assembly bytes", async function () {
+        const { executor, WETH, DAI, platform1, platform2, user1 } = await loadFixture(deploy);
+        const functionSelector = executor.interface.encodeFunctionData('execute_assembly_bytes', []);
+        const struct1Packed = abiCoder.encode(["uint8", "address", "bytes"], [platform1.platform, platform1.pool, platform1.data]);
+        const struct2Packed = abiCoder.encode(["uint8", "address", "bytes"], [platform2.platform, platform2.pool, platform2.data]);
+        const structs = hre.ethers.solidityPacked(["uint256", "uint256", "uint256", "uint256", "uint256", "bytes", "bytes"], [96, 544, 2, 64, 224, struct1Packed, struct2Packed]);
+
+        const dataPacked = hre.ethers.solidityPacked(["uint", "address", "uint", "address[]"], [100, user1.address, 3, [WETH, DAI, WETH]]);
+        const dataAll = functionSelector + dataPacked.substring(2) + structs.substring(2);
+        //console.log("raw data = ", dataAll);
+        await user1.sendTransaction({
+            to: executor.getAddress(),
+            data: dataAll
+        });
+        const estimateGas = await user1.estimateGas({
+            to: executor.getAddress(), data: dataAll
+        })
+        console.log("estimateGas = ", estimateGas); 
+    });
 
 });

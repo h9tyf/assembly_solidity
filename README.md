@@ -139,4 +139,4 @@ add bytes as parameter:
 
 add parameters for exchanges.length
 
-Gas: 38204 => 38864
+Gas: 38204 => 38864 => 35222
